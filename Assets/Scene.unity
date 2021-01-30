@@ -157,7 +157,7 @@ MonoBehaviour:
   - {fileID: 7494028552839691486, guid: f35c56cf76bc35f4584068d1ce247c43, type: 3}
   - {fileID: 7163495637707348280, guid: 62c096214c9382f4dbeb8f2d95223245, type: 3}
   - {fileID: 7354571811440444367, guid: c3f72c134907ffb41adc7edfa86919df, type: 3}
-  numberOfAsteroids: 10
+  numberOfAsteroids: 20
 --- !u!4 &64165940
 Transform:
   m_ObjectHideFlags: 0
@@ -453,6 +453,50 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &721488218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721488220}
+  - component: {fileID: 721488219}
+  m_Layer: 0
+  m_Name: MarkerPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &721488219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721488218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 214be88a634c2ee4c8d628c38eb3a21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  markerPrefab: {fileID: 538340574204101921, guid: 904672e34a6a09c4b9a0330659ec460c, type: 3}
+--- !u!4 &721488220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721488218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &913277601
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ebe27c7fa21dee4581af38fdfa63355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 0}
+  laser: {fileID: 2032147880}
   firingMode: {fileID: 1427458192}
 --- !u!1 &1427458191
 GameObject:
@@ -911,7 +955,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27273809014e2941886ca59d8b0ad71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firingModes: []
+  firingModes:
+  - {fileID: 1611162624}
 --- !u!4 &1427458193
 Transform:
   m_ObjectHideFlags: 0
@@ -956,7 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114e32b789ff29a46a89622f322156c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missilePrefab: {fileID: 0}
+  missilePrefab: {fileID: 6453189443005337159, guid: b57f38f6c2230f84d8a2c1be72d96706, type: 3}
 --- !u!4 &1489219906
 Transform:
   m_ObjectHideFlags: 0
@@ -965,7 +1010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489219904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.781319, y: 11.722994, z: -6.846449}
+  m_LocalPosition: {x: 0, y: 0, z: 8.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -996,7 +1041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611162622}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 26.3, y: -12.2, z: 7.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1427458193}
@@ -1014,6 +1059,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ba47937a7f1a848b2fcd5ddc0dceb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missilePool: {fileID: 1489219905}
+  markers: {fileID: 721488219}
 --- !u!1 &1861680033
 GameObject:
   m_ObjectHideFlags: 0
