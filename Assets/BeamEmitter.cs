@@ -18,10 +18,11 @@ public class BeamEmitter : MonoBehaviour
     [SerializeField]
     float angle = 42f;
 
+
     // Start is called before the first frame update
     void Start()
     {
-        meshFilter = FindObjectOfType<MeshFilter>();
+        meshFilter = GetComponent<MeshFilter>();
         mesh = new Mesh();
         meshFilter.mesh = mesh;
     }
@@ -54,7 +55,7 @@ public class BeamEmitter : MonoBehaviour
                 distance = hit.distance;
             }
 
-            vertices[index] = meshSpaceRaycastDirection * distance;
+            vertices[index] =  meshSpaceRaycastDirection * distance;
 
             if (index > 1)
             {

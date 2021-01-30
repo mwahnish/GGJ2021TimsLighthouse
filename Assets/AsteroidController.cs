@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AsteroidController : MonoBehaviour
 {
     AsteroidRegion parentRegion;
     Rigidbody rb;
+
+    NavMeshObstacle obstacle;
 
     [SerializeField]
     private float minKickSpeed = 25f;
@@ -16,6 +19,10 @@ public class AsteroidController : MonoBehaviour
 
     [SerializeField]
     private float maxSpinSpeed = 5f;
+
+    public System.Action onFinishedPath;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +61,8 @@ public class AsteroidController : MonoBehaviour
         while (Vector3.Distance(this.transform.position, parentRegion.transform.position) < parentRegion.radius)
             yield return null;
 
+        onFinishedPath?.Invoke();
+        onFinishedPath = null;
         parentRegion.AsteroidFinishedRoute(this.gameObject);
         StartCoroutine(DoTravel());
     }
