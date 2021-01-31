@@ -3,6 +3,9 @@
     public enum MessageKey
     {
         ShipReachedGate,
-        StartLevel
+        IncomingShip,
+        StartLevel,
+        ShieldsAt50,
+        ShipDestroyed
     }
 }

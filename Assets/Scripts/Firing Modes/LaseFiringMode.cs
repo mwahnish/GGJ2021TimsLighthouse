@@ -10,6 +10,9 @@ public class LaseFiringMode : FiringModeBase
     [SerializeField]
     MarkerPool markers;
 
+
+    public override int cost => 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +25,17 @@ public class LaseFiringMode : FiringModeBase
         
     }
 
-    public override void Fire(GameObject target)
+    public override void Fire(List<GameObject> targets)
     {
-        missilePool.FireMissile(target, ()=> {
-            AsteroidController asteroid = target.GetComponent<AsteroidController>();
-            if (asteroid != null)
-                markers.AssignToAsteroid(asteroid);
-                
-        });
+        foreach (GameObject target in targets)
+        {
+            missilePool.FireMissile(target, () =>
+            {
+                AsteroidController asteroid = target.GetComponent<AsteroidController>();
+                if (asteroid != null)
+                    markers.AssignToAsteroid(asteroid);
+
+            });
+        }
     }
 }
