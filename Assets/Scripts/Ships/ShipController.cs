@@ -109,7 +109,7 @@ public class ShipController : MonoBehaviour
             parentRegion = GetComponentInParent<ShipRegion>();
             StopAllCoroutines();
             ExplosionPool explosion = FindObjectOfType<ExplosionPool>();
-            explosion.AssignToShip(this);
+            explosion.AssignToShip(this.gameObject);
             parentRegion.ShipFinishedRoute(this.gameObject);
             agent.enabled = false;
             this.transform.position = Vector3.up * 1000f;

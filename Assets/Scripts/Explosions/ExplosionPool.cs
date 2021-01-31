@@ -9,7 +9,7 @@ public class ExplosionPool : MonoBehaviour
 
     private List<ExplosionController> checkedInExplosions = new List<ExplosionController>();
 
-    public ExplosionController AssignToShip(ShipController target)
+    public ExplosionController AssignToShip(GameObject target)
     {
         ExplosionController explosionController = null;
 

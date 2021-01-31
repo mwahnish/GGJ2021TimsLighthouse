@@ -10,7 +10,10 @@ public class LaserBeam : MonoBehaviour
     float maxDistance = 90;
 
     public AsteroidController target { get; private set; }
-    public List<AsteroidController> targets { get; private set; }
+
+
+    private List<AsteroidController> _targets = new List<AsteroidController>();
+    public List<AsteroidController> targets { get { return _targets; } }
 
     // Start is called before the first frame update
     void Start()
