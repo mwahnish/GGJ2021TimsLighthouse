@@ -85,6 +85,8 @@ public class ShipController : MonoBehaviour
         endGate = null;
         agent.enabled = false;
 
+        GameManager.instance.OnShipReturned();
+
         this.transform.position = Vector3.up * 1000f;
         StartCoroutine(DoTravel());
 
@@ -116,6 +118,7 @@ public class ShipController : MonoBehaviour
             UIManager.instance.SetShipHealthMeter(1, 0);
             UIManager.instance.DisplayMessage(Assets.Scripts.UI.MessageKey.ShipDestroyed);
             UIManager.instance.ShowShipIcon(false);
+            GameManager.instance.OnShipKilled();
             StartCoroutine(DoTravel());
         }
     }

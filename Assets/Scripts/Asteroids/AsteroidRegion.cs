@@ -12,7 +12,7 @@ public class AsteroidRegion : MonoBehaviour
 
 
     [SerializeField]
-    private int numberOfAsteroids = 0;
+    public int numberOfAsteroids = 0;
 
     private List<GameObject> asteroidsInPlay = new List<GameObject>();
 
