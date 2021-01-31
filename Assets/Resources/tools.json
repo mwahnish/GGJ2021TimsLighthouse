@@ -1,0 +1,22 @@
+{
+  "ForcePusle": {
+    "Image": "",
+    "Title": "Force Pulse",
+    "Text": "The Force Pulse tool ..."
+  },
+  "LaserCanon": {
+    "Image": "",
+    "Title": "Laser Canon",
+    "Text": "The Laser Canon tools ..."
+  },
+  "Radar": {
+    "Image": "",
+    "Title": "Radar Illuminate",
+    "Text": "The Radar Illuminate tool ..."
+  },
+  "TractorBeam": {
+    "Image": "",
+    "Title": "Tractor Beam",
+    "Text": "The Tractor Beam tool ..."
+  }
+}
