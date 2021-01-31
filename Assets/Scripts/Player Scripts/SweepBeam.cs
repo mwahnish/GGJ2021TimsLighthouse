@@ -42,13 +42,13 @@ public class SweepBeam : MonoBehaviour
                 firingMode.Fire(new List<GameObject>( new GameObject[] { laser.target.gameObject }),0);
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && GameManager.instance.tool2Enabled)
         {
             if (laser.target != null)
                 firingMode.Fire(new List<GameObject>(new GameObject[] { laser.target.gameObject }), 1);
         }
 
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButtonDown(2) && GameManager.instance.tool2Enabled)
         {
             firingMode.Fire(laser.targets.Select(x=>x.gameObject).ToList(), 2);
         }

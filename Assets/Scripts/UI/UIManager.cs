@@ -17,10 +17,10 @@ public class UIManager : MonoBehaviour
     private ToolKey currentTool;
 
     [SerializeField]
-    private GameObject tool2Icon;
+    private Animator tool2Icon;
 
     [SerializeField]
-    private GameObject tool3Icon;
+    private Animator tool3Icon;
 
     [SerializeField]
     private Lives lives;
@@ -66,7 +66,12 @@ public class UIManager : MonoBehaviour
     /// <param name="value">Score value</param>
     public void SetScore(int value)
     {
-        score.SetScore(value);
+       score.SetScore(value);
+    }
+
+    public void AppendScore(int value)
+    {
+        score.AppendScore(value);
     }
 
 
@@ -137,12 +142,12 @@ public class UIManager : MonoBehaviour
     
     public void ShowTool2()
     {
-        tool2Icon.SetActive(true);
+        tool2Icon.SetTrigger("Show");
     }
 
     public void ShowTool3()
     {
-        tool3Icon.SetActive(true);
+        tool3Icon.SetTrigger("Show");
     }
 
     public void SetLives(int numLives)
@@ -167,8 +172,6 @@ public class UIManager : MonoBehaviour
         SetScore(0);
         SetLighthouseHealth(100);
         SetShipHealthMeter(1, 100);
-        tool2Icon.SetActive(false);
-        tool3Icon.SetActive(false);
         GameOverScreen.SetActive(false);
     }
 

@@ -6,6 +6,8 @@
         IncomingShip,
         StartLevel,
         ShieldsAt50,
-        ShipDestroyed
+        ShipDestroyed,
+        PushPodsUnlocked,
+        LaserCannonUnlocked
     }
 }

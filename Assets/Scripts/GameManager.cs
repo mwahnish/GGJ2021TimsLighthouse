@@ -56,11 +56,16 @@ public class GameManager : MonoBehaviour
 
         if (shipReturnCount > enableTool2AfterXReturns && shipReturnCount <= enableTool3AfterXReturns)
         {
+            if (tool2Enabled == false)
+                UIManager.instance.DisplayMessage(Assets.Scripts.UI.MessageKey.PushPodsUnlocked);
             UIManager.instance.ShowTool2();
             tool2Enabled = true;
         }
         else if (shipReturnCount > enableTool3AfterXReturns)
         {
+
+            if (tool3Enabled == false)
+                UIManager.instance.DisplayMessage(Assets.Scripts.UI.MessageKey.LaserCannonUnlocked);
             UIManager.instance.ShowTool3();
             tool3Enabled = true;
         }

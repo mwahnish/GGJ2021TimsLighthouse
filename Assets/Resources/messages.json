@@ -3,5 +3,7 @@
   "IncomingShip": "A new ship is arriving!",
   "ShipReachedGate": "Ship has entered the warp portal",
   "ShieldsAt50": "Shields are at 50%!",
-  "ShipDestroyed": "Ship Destroyed"
+  "ShipDestroyed": "Ship Destroyed",
+  "PushPodsUnlocked": "Push Pods online",
+  "LaserCannonUnlocked": "Laser Cannon online"
 }

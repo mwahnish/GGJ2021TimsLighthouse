@@ -72,12 +72,12 @@ public class ShipController : MonoBehaviour
         startGate.Hide(false);
         startGate = null;
 
-        while (Vector3.Distance(this.transform.position, parentRegion.transform.position) < parentRegion.radius-1)
+        while (Vector3.Distance(this.transform.position, targetPosition) > 10)
             yield return null;
 
         parentRegion.ShipFinishedRoute(this.gameObject);
 
-        UIManager.instance.SetScore(hitOnce ? 25: 50);
+        UIManager.instance.AppendScore(hitOnce ? 25: 50);
         UIManager.instance.DisplayMessage(Assets.Scripts.UI.MessageKey.ShipReachedGate);
         UIManager.instance.ShowShipIcon(false);
 
