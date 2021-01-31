@@ -2,17 +2,17 @@
   "ForcePusle": {
     "Image": "",
     "Title": "Pusher",
-    "Text": "Designate asteroids with Pushers to push them away from the lighthouse, potentially clearing a path for the ships."
+    "Text": "Right click to designate asteroids with Pushers to push them away from the lighthouse, potentially clearing a path for the ships."
   },
   "LaserCanon": {
     "Image": "",
     "Title": "Cannon",
-    "Text": "Use this beam to destroy an asteroid.  You most hold the beam on the asteroid to destroy it.  Careful of nearby ships."
+    "Text": "Middle click to use this beam to destroy an asteroid.  You most hold the beam on the asteroid to destroy it.  Careful of nearby ships."
   },
   "Radar": {
     "Image": "",
     "Title": "Radar Beacon",
-    "Text": "Designate asteroids with Beacons so that the ships will automatically avoid them."
+    "Text": "Left click to designate asteroids with Beacons so that the ships will automatically avoid them."
   },
   "TractorBeam": {
     "Image": "",
