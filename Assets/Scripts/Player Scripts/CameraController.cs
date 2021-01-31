@@ -30,7 +30,7 @@ public class CameraController : MonoBehaviour
         // Determine camera location coordiates on radial at selected range
         camX = CameraRange * Mathf.Sin(camAngle);
         camZ = CameraRange * Mathf.Cos(camAngle);
-        transform.position = new Vector3(camX, CameraAltitude, camZ);
+        transform.localPosition = new Vector3(camX, CameraAltitude, camZ);
 
         // Rotate camera direction to be opposite of its radial angle
         camAngleDeg = camAngle / (2.0f * Mathf.PI) * 360.0f;

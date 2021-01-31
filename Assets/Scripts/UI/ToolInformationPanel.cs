@@ -12,6 +12,7 @@ public class ToolInformationPanel : MonoBehaviour
 
     public void Display(ToolData tool)
     {
+        Time.timeScale = 0f;
         title.text = $"{tool.Title} Tool";
         text.text = tool.Text;
         gameObject.SetActive(true);
@@ -20,6 +21,7 @@ public class ToolInformationPanel : MonoBehaviour
 
     public void Hide()
     {
+        Time.timeScale = 1f;
         gameObject.SetActive(false);
     }
 }

@@ -50,8 +50,7 @@ public class SweepBeam : MonoBehaviour
 
         if (Input.GetMouseButtonDown(2))
         {
-            if (laser.targets != null && laser.targets.Count > 0)
-                firingMode.Fire(laser.targets.Select(x=>x.gameObject).ToList(), 2);
+            firingMode.Fire(laser.targets.Select(x=>x.gameObject).ToList(), 2);
         }
 
     }

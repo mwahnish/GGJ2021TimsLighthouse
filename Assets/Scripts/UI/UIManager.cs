@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,6 +15,18 @@ public class UIManager : MonoBehaviour
     private Messages messages;
     private Tools tools;
     private ToolKey currentTool;
+
+    [SerializeField]
+    private GameObject tool2Icon;
+
+    [SerializeField]
+    private GameObject tool3Icon;
+
+    [SerializeField]
+    private Lives lives;
+
+    [SerializeField]
+    private GameObject GameOverScreen;
 
     private static UIManager _instance = null;
 
@@ -94,15 +107,15 @@ public class UIManager : MonoBehaviour
     /// Displays the Tool Information Dialog for the specified tool
     /// </summary>
     /// <param name="key">Tool key</param>
-    public void DisplayToolInformation()
+    public void DisplayToolInformation(int toolSelection)
     {
-        if (tools.TryGetValue(currentTool, out ToolData tool))
+        if (tools.TryGetValue((ToolKey)toolSelection, out ToolData tool))
         {
             toolInformation.Display(tool);
         }
         else
         {
-            Debug.Log($"No tool found for id: {currentTool}");
+            Debug.Log($"No tool found for id: {toolSelection}");
         }
     }
 
@@ -116,6 +129,32 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    
+    public void ShowTool2()
+    {
+        tool2Icon.SetActive(true);
+    }
+
+    public void ShowTool3()
+    {
+        tool3Icon.SetActive(true);
+    }
+
+    public void SetLives(int numLives)
+    {
+        lives.SetLives(numLives);
+    }
+
+    public void ShowGameOver()
+    {
+        GameOverScreen.SetActive(true);
+    }
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
     #region Private Methods
 
     private void Reset()
@@ -123,6 +162,9 @@ public class UIManager : MonoBehaviour
         SetScore(0);
         SetLighthouseHealth(100);
         SetShipHealthMeter(1, 100);
+        tool2Icon.SetActive(false);
+        tool3Icon.SetActive(false);
+        GameOverScreen.SetActive(false);
     }
 
     #endregion

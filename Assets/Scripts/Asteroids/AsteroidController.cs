@@ -85,6 +85,14 @@ public class AsteroidController : MonoBehaviour
         StartCoroutine(DoTravel());
     }
 
+    public void Kill()
+    {
+        StopAllCoroutines();
+        rb.position = Vector3.up * 1000f;
+        StartCoroutine(DoTravel());
+    }
+
+
     private IEnumerator ChangeOpacity(MeshRenderer renderer, float targetOpacity)
     {
         float currentTime = Time.deltaTime;
