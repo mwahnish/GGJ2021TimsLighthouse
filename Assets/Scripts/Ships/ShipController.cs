@@ -31,7 +31,6 @@ public class ShipController : MonoBehaviour
     JumpGateController endGate;
     private IEnumerator DoTravel()
     {
-
         yield return new WaitForSeconds(2f);
         agent.enabled = true;
         shield.SetActive(true);
@@ -58,8 +57,13 @@ public class ShipController : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        UIManager.instance.SetShipHealthMeter(1, 100);
+        FiringModeManager.instance.currentEnergy = 100;
+        UIManager.instance.ShowShipIcon(true);
+
         agent.Warp(parentRegion.transform.position + startPosition);
         spawnSound.Play();
+        UIManager.instance.DisplayMessage(Assets.Scripts.UI.MessageKey.IncomingShip);
 
         agent.SetDestination(parentRegion.transform.position + targetPosition);
 
@@ -73,6 +77,9 @@ public class ShipController : MonoBehaviour
 
         parentRegion.ShipFinishedRoute(this.gameObject);
 
+        UIManager.instance.SetScore(hitOnce ? 25: 50);
+        UIManager.instance.DisplayMessage(Assets.Scripts.UI.MessageKey.ShipReachedGate);
+        UIManager.instance.ShowShipIcon(false);
 
         endGate.Hide(true);
         endGate = null;
@@ -92,6 +99,8 @@ public class ShipController : MonoBehaviour
             hitOnce = true;
             shield.SetActive(false);
             GetComponent<PlayRandomSound>().PlayARandomSound(1f);
+            UIManager.instance.SetShipHealthMeter(1, 50);
+            UIManager.instance.DisplayMessage(Assets.Scripts.UI.MessageKey.ShieldsAt50);
         }
         else
         {
@@ -104,6 +113,9 @@ public class ShipController : MonoBehaviour
             parentRegion.ShipFinishedRoute(this.gameObject);
             agent.enabled = false;
             this.transform.position = Vector3.up * 1000f;
+            UIManager.instance.SetShipHealthMeter(1, 0);
+            UIManager.instance.DisplayMessage(Assets.Scripts.UI.MessageKey.ShipDestroyed);
+            UIManager.instance.ShowShipIcon(false);
             StartCoroutine(DoTravel());
         }
     }

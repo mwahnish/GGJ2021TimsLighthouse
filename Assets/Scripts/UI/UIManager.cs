@@ -9,10 +9,23 @@ public class UIManager : MonoBehaviour
 
     public NotificationPanel notifications;
     public ToolInformationPanel toolInformation;
+    public ShipIcon shipIcon;
 
     private Messages messages;
     private Tools tools;
     private ToolKey currentTool;
+
+    private static UIManager _instance = null;
+
+    public static UIManager instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = FindObjectOfType<UIManager>();
+            return _instance;
+        }
+    }
 
 
     private void Start()
@@ -91,6 +104,14 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log($"No tool found for id: {currentTool}");
         }
+    }
+
+    public void ShowShipIcon(bool show)
+    {
+        if (show)
+            shipIcon.SlideIn();
+        else
+            shipIcon.SlideOut();
     }
 
     #endregion

@@ -1,4 +1,7 @@
 ﻿{
   "StartLevel":  "SOS: Save Our Ships",
-  "ShipReachedGate": "Ship has entered the warp portal"
+  "IncomingShip": "A new ship is arriving!",
+  "ShipReachedGate": "Ship has entered the warp portal",
+  "ShieldsAt50": "Shields are at 50%!",
+  "ShipDestroyed": "Ship Destroyed"
 }

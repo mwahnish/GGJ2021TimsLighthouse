@@ -4,7 +4,9 @@ using UnityEngine;
 
 public abstract class FiringModeBase : MonoBehaviour
 {
-    public virtual void Fire(GameObject target)
+    public abstract int cost { get; }
+
+    public virtual void Fire(List<GameObject> target)
     {
 
     }

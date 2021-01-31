@@ -7,6 +7,9 @@ public class HealthMeter : MonoBehaviour
     private Slider slider;
     private TextMeshProUGUI text;
 
+    private float currentSliderValue = 0f;
+    private int targetValue = 0;
+
 
     private void Awake()
     {
@@ -17,14 +20,21 @@ public class HealthMeter : MonoBehaviour
 
     public void SetHealth(int value)
     {
+        targetValue = value;
+    }
+
+    private void Update()
+    {
+        currentSliderValue = Mathf.MoveTowards(currentSliderValue, targetValue, 25 * Time.deltaTime);
+
         if (slider != null)
         {
-            slider.value = value;
+            slider.value = (int)currentSliderValue;
         }
 
         if (text != null)
         {
-            text.text = $"{value}%";
+            text.text = $"{(int)currentSliderValue}%";
         }
     }
 }

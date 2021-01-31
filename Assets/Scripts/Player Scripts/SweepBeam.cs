@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SweepBeam : MonoBehaviour
@@ -38,13 +39,19 @@ public class SweepBeam : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (laser.target != null)
-                firingMode.Fire(laser.target.gameObject,0);
+                firingMode.Fire(new List<GameObject>( new GameObject[] { laser.target.gameObject }),0);
         }
 
         if (Input.GetMouseButtonDown(1))
         {
             if (laser.target != null)
-                firingMode.Fire(laser.target.gameObject,1);
+                firingMode.Fire(new List<GameObject>(new GameObject[] { laser.target.gameObject }), 1);
+        }
+
+        if (Input.GetMouseButtonDown(2))
+        {
+            if (laser.targets != null && laser.targets.Count > 0)
+                firingMode.Fire(laser.targets.Select(x=>x.gameObject).ToList(), 2);
         }
 
     }
