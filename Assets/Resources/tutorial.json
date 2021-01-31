@@ -7,7 +7,7 @@
   },
   "Tools": {
     "Title": "Technology / Tools",
-    "Text": "Technology - Tim has installed various tools to assist the ships in safely reaching their destination.\n\n#> Radar Beacon - Designate asteroids with Beacons so that the ships will automatically avoid them.\n#> Pusher - Designate asteroids with Pushers to push them away from the lighthouse, potentially clearing a path for the ships.\n#> Cannon - Use this beam to destroy an asteroid. You most hold the beam on the asteroid to destroy it. Careful of nearby ships.",
+    "Text": "Technology - Tim has installed various tools to assist the ships in safely reaching their destination.\n\n#> Radar Beacon - Designate asteroids with Beacons so that the ships will automatically avoid them.\n#> Pusher - Designate asteroids with Pushers to push them away from the lighthouse, potentially clearing a path for the ships.\n#> Cannon - Use this beam to destroy an asteroid. You most hold the beam on the asteroid to destroy it. Careful of nearby ships. \n\nNot all tools will be available at the start of the game! Tools will be enabled as you play",
     "NextPage": "Controls",
     "PreviousPage": "Introduction"
   },
@@ -25,7 +25,7 @@
   },
   "Credits": {
     "Title": "Credits & Thanks",
-    "Text": "CREDITS\nTim's Lighthoouse by - Mark Wahnish, Marty Quire & Fred Gohsman\nGlobal Game Jam 2021 - Remote from Tampa Bay area\n\nConcept, Gameplay & Design           - All (Suncoast GGJ)\nOrginal Art, Music & 3D Models       - MartyQ\nOverall Coding & Integration         - MarkW\nUser Interface & Help Design/Coding  - FredG\n\nThanks to Central Florida GGJ, Unity3D",
+    "Text": "CREDITS\nTim's Lighthouse by - Mark Wahnish, Marty Quire & Fred Gohsman\nGlobal Game Jam 2021 - Remote from Tampa Bay area\n\nConcept, Gameplay & Design           - All (Suncoast GGJ)\nOrginal Art, Music & 3D Models       - MartyQ\nOverall Coding & Integration         - MarkW\nUser Interface & Help Design/Coding  - FredG\n\nThanks to Central Florida GGJ, Unity3D, and Kenney.nl",
     "NextPage": "Menu",
     "PreviousPage": "Scoring"
   }

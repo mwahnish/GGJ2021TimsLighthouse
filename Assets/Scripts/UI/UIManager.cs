@@ -52,6 +52,11 @@ public class UIManager : MonoBehaviour
         DisplayMessage(MessageKey.StartLevel);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            MainMenu();
+    }
 
     #region Public Interface
 
