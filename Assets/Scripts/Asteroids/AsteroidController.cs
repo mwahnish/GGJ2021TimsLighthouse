@@ -20,6 +20,9 @@ public class AsteroidController : MonoBehaviour
     [SerializeField]
     private float maxSpinSpeed = 5f;
 
+    [SerializeField]
+    private MeshRenderer renderer;
+
     public System.Action onFinishedPath;
 
     public bool lockZAxis = true;
@@ -37,8 +40,12 @@ public class AsteroidController : MonoBehaviour
             this.transform.localPosition = new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
     }
 
+    MaterialPropertyBlock block;
+
     private IEnumerator DoTravel()
     {
+        block = new MaterialPropertyBlock();
+
         float positioningAngle = Random.Range(0, 360f);
 
         Vector3 startPosition = Quaternion.Euler(new Vector3(0, positioningAngle, 0)) * Vector3.forward * parentRegion.radius;
@@ -48,6 +55,9 @@ public class AsteroidController : MonoBehaviour
 
         rb.velocity = Vector3.zero;
 
+        renderer.GetPropertyBlock(block);
+        block.SetFloat("_Opacity", 0f);
+        renderer.SetPropertyBlock(block);
 
         float firingAngle = Mathf.Repeat(positioningAngle + 180 + Random.Range(-70, 70), 360);
 
@@ -57,15 +67,37 @@ public class AsteroidController : MonoBehaviour
 
         rb.angularVelocity = new Vector3(Random.Range(-maxSpinSpeed, maxSpinSpeed), Random.Range(-maxSpinSpeed, maxSpinSpeed), Random.Range(-maxSpinSpeed, maxSpinSpeed));
 
+        StartCoroutine(ChangeOpacity(renderer,1f));
+
         yield return new WaitForSeconds(2f);
 
         while (Vector3.Distance(this.transform.position, parentRegion.transform.position) < parentRegion.radius)
             yield return null;
 
+
+        StartCoroutine(ChangeOpacity(renderer, 0f));
+
+        yield return new WaitForSeconds(5f);
+
         onFinishedPath?.Invoke();
         onFinishedPath = null;
         parentRegion.AsteroidFinishedRoute(this.gameObject);
         StartCoroutine(DoTravel());
+    }
+
+    private IEnumerator ChangeOpacity(MeshRenderer renderer, float targetOpacity)
+    {
+        float currentTime = Time.deltaTime;
+        while(Time.deltaTime < currentTime + 2f)
+        {
+            float currentOpacity = block.GetFloat("_Opacity");
+            currentOpacity = Mathf.MoveTowards(currentOpacity, targetOpacity, 0.5f * Time.deltaTime);
+            renderer.GetPropertyBlock(block);
+            block.SetFloat("_Opacity", currentOpacity );
+            renderer.SetPropertyBlock(block);
+            yield return null;
+        }
+        block.SetFloat("_Opacity", targetOpacity);
     }
 
     private void OnCollisionEnter(Collision collision)

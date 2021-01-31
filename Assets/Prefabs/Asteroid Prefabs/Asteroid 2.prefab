@@ -61,6 +61,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 578af1667322bab45b652b79a40bb4fb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+--- !u!23 &5947515860429399498 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 9afa958d6d8235941b9badb42aae4370, type: 3}
+  m_PrefabInstance: {fileID: 5947515860427373994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9026205611111394720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76,6 +81,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2173654747959391386, guid: 824c33d2754c544458621a831d143aaa, type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 5947515860429399498}
     - target: {fileID: 2173654747959391387, guid: 824c33d2754c544458621a831d143aaa, type: 3}
       propertyPath: m_RootOrder
       value: 0

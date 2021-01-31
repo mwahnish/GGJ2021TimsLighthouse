@@ -10,6 +10,9 @@ public class ShipController : MonoBehaviour
     [SerializeField]
     private GameObject shield;
 
+    [SerializeField]
+    private AudioSource spawnSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,30 +27,60 @@ public class ShipController : MonoBehaviour
         
     }
 
-
+    JumpGateController startGate;
+    JumpGateController endGate;
     private IEnumerator DoTravel()
     {
+
+        yield return new WaitForSeconds(2f);
+        agent.enabled = true;
         shield.SetActive(true);
         hitOnce = false;
 
+        // Calculating start area
         float positioningAngle = Random.Range(0, 360f);
-
         Vector3 startPosition = Quaternion.Euler(new Vector3(0, positioningAngle, 0)) * Vector3.forward * parentRegion.radius;
-        agent.Warp(parentRegion.transform.position + startPosition);
 
+        // Calculating endPosition
 
         float firingAngle = Random.Range(0, 360f);
         Vector3 targetPosition = Quaternion.Euler(new Vector3(0, firingAngle, 0)) * Vector3.forward * parentRegion.radius;
+
+
+        JumpGatePool jumpGatePool = FindObjectOfType<JumpGatePool>();
+
+        startGate = jumpGatePool.ShowAtPosition(startPosition,true);
+
+        yield return new WaitForSeconds(1f);
+
+        endGate = jumpGatePool.ShowAtPosition(targetPosition,false);
+
+
+        yield return new WaitForSeconds(1f);
+
+        agent.Warp(parentRegion.transform.position + startPosition);
+        spawnSound.Play();
 
         agent.SetDestination(parentRegion.transform.position + targetPosition);
 
         yield return new WaitForSeconds(2f);
 
+        startGate.Hide(false);
+        startGate = null;
+
         while (Vector3.Distance(this.transform.position, parentRegion.transform.position) < parentRegion.radius-1)
             yield return null;
 
         parentRegion.ShipFinishedRoute(this.gameObject);
+
+
+        endGate.Hide(true);
+        endGate = null;
+        agent.enabled = false;
+
+        this.transform.position = Vector3.up * 1000f;
         StartCoroutine(DoTravel());
+
     }
 
     bool hitOnce = false;
@@ -62,13 +95,15 @@ public class ShipController : MonoBehaviour
         }
         else
         {
-
+            startGate?.Hide(false);
+            endGate?.Hide(true);
             parentRegion = GetComponentInParent<ShipRegion>();
             StopAllCoroutines();
             ExplosionPool explosion = FindObjectOfType<ExplosionPool>();
             explosion.AssignToShip(this);
             parentRegion.ShipFinishedRoute(this.gameObject);
-
+            agent.enabled = false;
+            this.transform.position = Vector3.up * 1000f;
             StartCoroutine(DoTravel());
         }
     }
