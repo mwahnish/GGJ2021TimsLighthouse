@@ -61,6 +61,7 @@ public class AsteroidRegion : MonoBehaviour
 
     public void AsteroidFinishedRoute(GameObject asteroid)
     {
+        asteroid.GetComponent<AsteroidController>().lockZAxis = true;
         if (waitingToDeleteAsteroid)
         {
             if(asteroidsInPlay.Contains(asteroid))

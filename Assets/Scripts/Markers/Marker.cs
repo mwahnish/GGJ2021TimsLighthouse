@@ -10,6 +10,7 @@ public class Marker : MonoBehaviour
 
     public void AssignToAsteroid(MarkerPool pool, AsteroidController asteroid)
     {
+        GetComponent<PlayRandomSound>().PlayARandomSound(1f);
         StartCoroutine(FollowAsteroid(pool, asteroid));
     }
     

@@ -8,10 +8,12 @@ public class FiringModeManager : MonoBehaviour
     [SerializeField]
     private List<FiringModeBase> firingModes = new List<FiringModeBase>();
 
-    private int selectedFiringMode = 0;
+    //[SerializeField]
+    //private int selectedFiringMode = 0;
 
-    public void Fire(GameObject target)
+    public void Fire(GameObject target, int firingMode)
     {
-        firingModes[selectedFiringMode].Fire(target);
+        GetComponent<AudioSource>().Play();
+        firingModes[firingMode].Fire(target);
     }
 }

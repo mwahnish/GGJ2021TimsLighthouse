@@ -35,9 +35,9 @@ public class MissileController : MonoBehaviour
         trail.enabled = true;
         trail.time = 1;
        
-        rb.AddForce(Vector3.up * 1600);
+        rb.AddForce(Vector3.up * 2000);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.25f);
 
         startTime = Time.time;
         while (Time.time < startTime + 0.1f)

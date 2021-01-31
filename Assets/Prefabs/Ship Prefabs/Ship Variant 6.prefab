@@ -63,6 +63,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7070579a2a6416749a11b41a85abc51a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f870920a957a1bf47ba561b2d558f3fb, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7070579a2a6416749a11b41a85abc51a, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f870920a957a1bf47ba561b2d558f3fb, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7070579a2a6416749a11b41a85abc51a, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: f870920a957a1bf47ba561b2d558f3fb, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7070579a2a6416749a11b41a85abc51a, type: 3}
+      propertyPath: m_Materials.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: f870920a957a1bf47ba561b2d558f3fb, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7070579a2a6416749a11b41a85abc51a, type: 3}
+      propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: f870920a957a1bf47ba561b2d558f3fb, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7070579a2a6416749a11b41a85abc51a, type: 3}
+      propertyPath: m_Materials.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: f870920a957a1bf47ba561b2d558f3fb, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 7070579a2a6416749a11b41a85abc51a, type: 3}
+      propertyPath: m_Materials.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: f870920a957a1bf47ba561b2d558f3fb, type: 2}
     - target: {fileID: 919132149155446097, guid: 7070579a2a6416749a11b41a85abc51a, type: 3}
       propertyPath: m_Name
       value: Spaceships_6

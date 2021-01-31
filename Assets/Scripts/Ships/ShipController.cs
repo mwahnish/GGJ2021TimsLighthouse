@@ -7,6 +7,9 @@ public class ShipController : MonoBehaviour
     ShipRegion parentRegion;
     NavMeshAgent agent;
 
+    [SerializeField]
+    private GameObject shield;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,9 @@ public class ShipController : MonoBehaviour
 
     private IEnumerator DoTravel()
     {
+        shield.SetActive(true);
+        hitOnce = false;
+
         float positioningAngle = Random.Range(0, 360f);
 
         Vector3 startPosition = Quaternion.Euler(new Vector3(0, positioningAngle, 0)) * Vector3.forward * parentRegion.radius;
@@ -40,7 +46,30 @@ public class ShipController : MonoBehaviour
         while (Vector3.Distance(this.transform.position, parentRegion.transform.position) < parentRegion.radius-1)
             yield return null;
 
-        //parentRegion.ShipFinishedRoute(this.gameObject);
+        parentRegion.ShipFinishedRoute(this.gameObject);
         StartCoroutine(DoTravel());
+    }
+
+    bool hitOnce = false;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!hitOnce)
+        {
+            hitOnce = true;
+            shield.SetActive(false);
+            GetComponent<PlayRandomSound>().PlayARandomSound(1f);
+        }
+        else
+        {
+
+            parentRegion = GetComponentInParent<ShipRegion>();
+            StopAllCoroutines();
+            ExplosionPool explosion = FindObjectOfType<ExplosionPool>();
+            explosion.AssignToShip(this);
+            parentRegion.ShipFinishedRoute(this.gameObject);
+
+            StartCoroutine(DoTravel());
+        }
     }
 }

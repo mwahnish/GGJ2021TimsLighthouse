@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 28565d137368be34e8215375d4daac8a, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f870920a957a1bf47ba561b2d558f3fb, type: 2}
     - target: {fileID: 919132149155446097, guid: 28565d137368be34e8215375d4daac8a, type: 3}
       propertyPath: m_Name
       value: Spaceships_10

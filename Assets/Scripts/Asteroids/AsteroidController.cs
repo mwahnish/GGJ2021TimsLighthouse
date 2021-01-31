@@ -22,7 +22,7 @@ public class AsteroidController : MonoBehaviour
 
     public System.Action onFinishedPath;
 
-
+    public bool lockZAxis = true;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,8 @@ public class AsteroidController : MonoBehaviour
     }
     private void Update()
     {
-        this.transform.localPosition = new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
+        if (lockZAxis)
+            this.transform.localPosition = new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
     }
 
     private IEnumerator DoTravel()
@@ -65,5 +66,13 @@ public class AsteroidController : MonoBehaviour
         onFinishedPath = null;
         parentRegion.AsteroidFinishedRoute(this.gameObject);
         StartCoroutine(DoTravel());
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (Time.timeSinceLevelLoad < 1f) // preventing collision from triggering noise at spawn
+            return;
+        float hitMagnitude = collision.impulse.magnitude;
+        GetComponent<PlayRandomSound>().PlayARandomSound(hitMagnitude);
     }
 }

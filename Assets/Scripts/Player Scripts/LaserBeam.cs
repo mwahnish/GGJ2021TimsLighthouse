@@ -25,7 +25,7 @@ public class LaserBeam : MonoBehaviour
         Vector3 rayDirection = this.transform.TransformDirection(Vector3.up);
         Vector3 endPoint = this.transform.position + rayDirection * maxDistance;
 
-        if (Physics.Raycast(this.transform.position, rayDirection , out ray, maxDistance))
+        if (Physics.SphereCast(this.transform.position, 2f, rayDirection , out ray, maxDistance))
         {
             endPoint = this.transform.position + rayDirection * ray.distance;
             target = ray.collider.gameObject.GetComponent<AsteroidController>();
