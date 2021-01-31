@@ -45,7 +45,7 @@ public class AsteroidController : MonoBehaviour
     private IEnumerator DoTravel()
     {
         block = new MaterialPropertyBlock();
-
+        GetComponent<Collider>().enabled = true;
         float positioningAngle = Random.Range(0, 360f);
 
         Vector3 startPosition = Quaternion.Euler(new Vector3(0, positioningAngle, 0)) * Vector3.forward * parentRegion.radius;

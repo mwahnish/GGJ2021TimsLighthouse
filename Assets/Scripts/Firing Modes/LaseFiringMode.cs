@@ -31,6 +31,8 @@ public class LaseFiringMode : FiringModeBase
         {
             missilePool.FireMissile(target, () =>
             {
+
+                target.GetComponent<Collider>().enabled = false;
                 AsteroidController asteroid = target.GetComponent<AsteroidController>();
                 if (asteroid != null)
                     markers.AssignToAsteroid(asteroid);
