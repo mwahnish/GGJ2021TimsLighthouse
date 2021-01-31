@@ -6,6 +6,7 @@ namespace Assets.Scripts.UI
     {
         private const string MessagesResourceName = "messages";
         private const string ToolsResourceName = "tools";
+        private const string TutorialResourceName = "tutorial";
 
 
         public static Messages LoadMessageData()
@@ -17,6 +18,12 @@ namespace Assets.Scripts.UI
         public static Tools LoadToolData()
         {
             return LoadData<Tools>(ToolsResourceName);
+        }
+
+
+        public static Tutorials LoadTutorialData()
+        {
+            return LoadData<Tutorials>(TutorialResourceName);
         }
 
 
