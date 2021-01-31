@@ -1,0 +1,32 @@
+{
+  "Introduction": {
+    "Title": "Introduction",
+    "Text": "Tim's Lighthouse - Help the Lost Ships Find their way ahead!\n\nIntroduction - After studying Earth's Lighthouses, Tim decided to building a lighthouse in the heavens. Tim has chosen you to to man his lighthouse in an uncharted asteroid belt & guide the lost ships to find their jump-gates on the other side of the belt. The ships' pilots are skillful, but just need a little help from you and Tim's Lighthouse to get them & their passengers to safety.",
+    "NextPage": "Tools",
+    "PreviousPage":  "Menu"
+  },
+  "Tools": {
+    "Title": "Technology / Tools",
+    "Text": "Technology - Tim has installed various tools to assist the ships in safely reaching their destination.\n\n#> Radar Beacon - Designate asteroids with Beacons so that the ships will automatically avoid them.\n#> Pusher - Designate asteroids with Pushers to push them away from the lighthouse, potentially clearing a path for the ships.\n#> Cannon - Use this beam to destroy an asteroid. You most hold the beam on the asteroid to destroy it. Careful of nearby ships.",
+    "NextPage": "Controls",
+    "PreviousPage": "Introduction"
+  },
+  "Controls": {
+    "Title": "Controls",
+    "Text": "Controls - Use the mouse to sweep the lighthouse beam & target the asteroids.  Use the mouse buttons to trigger the various technology against the asteroids, to assist the ships. When a ship appears, its jump-gate will appear on the opposite side. Use the tech to assist each ship in reaching its jump-gate. Too many collisions will result in a ship losing its shields & possibly its destruction.\n\n#> Sweep Pointer Beam   - Mouse Movement to sweep\n#> Rotate Camera Orbit  - A & D keys to rotate\n#> Radar Beacon         - Left Mouse Button launches beacon\n#> Pusher Pod           - Right Mouse Button launches pod\n#> Cannon Beam           - Middle Mouse Button fires cannon",
+    "NextPage": "Scoring",
+    "PreviousPage": "Tools"
+  },
+  "Scoring": {
+    "Title": "Scoring",
+    "Text": "Scoring - To measure effectiveness of the tools (& the operator), a score is generated based on ships safely escorted to their jump-gate.  Energy levels of the lighthouse & ship are also displayed.",
+    "NextPage": "Credits",
+    "PreviousPage": "Controls"
+  },
+  "Credits": {
+    "Title": "Credits & Thanks",
+    "Text": "CREDITS\nTim's Lighthoouse by - Mark Wahnish, Marty Quire & Fred Gohsman\nGlobal Game Jam 2021 - Remote from Tampa Bay area\n\nConcept, Gameplay & Design           - All (Suncoast GGJ)\nOrginal Art, Music & 3D Models       - MartyQ\nOverall Coding & Integration         - MarkW\nUser Interface & Help Design/Coding  - FredG\n\nThanks to Central Florida GGJ, Unity3D",
+    "NextPage": "Menu",
+    "PreviousPage": "Scoring"
+  }
+}

@@ -7,4 +7,10 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }
